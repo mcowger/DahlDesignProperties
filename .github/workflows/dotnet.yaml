@@ -52,7 +52,7 @@ jobs:
     - name: Upload Artifact
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: "D:\a\DahlDesignProperties\DahlDesignProperties\bin\Release\DahlDesign.dll"
+        artifacts: D:\a\DahlDesignProperties\DahlDesignProperties\bin\Release\DahlDesign.dll
         prerelease: ${{ github.event.inputs.is-pre-release }}
         replacesArtifacts: true
         allowUpdates: true
