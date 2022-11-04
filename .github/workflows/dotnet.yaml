@@ -48,6 +48,16 @@ jobs:
 
     - name: Build solution
       run: msbuild "Dahl Design Properties.sln" -t:rebuild -property:Configuration=Release
+
+    - name: Upload Artifact
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "D:\a\DahlDesignProperties\DahlDesignProperties\bin\Release\DahlDesign.dll"
+        prerelease: ${{ github.event.inputs.is-pre-release }}
+        replacesArtifacts: true
+        allowUpdates: true
+        name: ${{ github.event.inputs.version }}
+        tag: ${{ github.event.inputs.version }}
       
       
     
