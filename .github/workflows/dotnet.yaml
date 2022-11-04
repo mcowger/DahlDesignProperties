@@ -5,15 +5,15 @@ name: Create DahlDesignProperties DLL
 
 on:
   workflow_dispatch:
-    # inputs:
-    #   version:
-    #     type: string
-    #     description: What Properties version does this correspond to?
-    #     required: true
-    #   is-pre-release:
-    #     type: boolean
-    #     required: true
-    #     description: "is this a prerelease version?"
+    inputs:
+      version:
+        type: string
+        description: What Properties version does this correspond to?
+        required: true
+      is-pre-release:
+        type: boolean
+        required: true
+        description: "is this a prerelease version?"
 
 jobs:
   build:
