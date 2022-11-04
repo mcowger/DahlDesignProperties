@@ -21,15 +21,15 @@ jobs:
     runs-on: windows-2019
 
     steps:
-    # - uses: actions/checkout@v2
-    # - name: Setup MSBuild
-    #   uses: microsoft/setup-msbuild@v1
+    - uses: actions/checkout@v2
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
 
-    # - name: Setup NuGet
-    #   uses: NuGet/setup-nuget@v1.0.5
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.5
       
-    # - name: setup-msbuild
-    #   uses: microsoft/setup-msbuild@v1.1
+    - name: setup-msbuild
+      uses: microsoft/setup-msbuild@v1.1
 
     - name: Get Requirements # Used to extract the SimHub Installer
       run: | 
@@ -39,13 +39,13 @@ jobs:
         7z x SimHub.8.01.2.zip
         dir
         mkdir extract
-        D:\a\DahlDesignProperties\DahlDesignProperties\innounp.exe -v -x -b -e -dextract SimHubSetup_8.1.2.exe *.dll
+        D:\a\DahlDesignProperties\DahlDesignProperties\innounp.exe -v -x -b -e -dextract SimHubSetup_8.1.2.exe ACSharedMemory.dll ACToolsUtilities.dll GameReadaderCommon.dll ICarsReader.dll InputManagerCS.dll iRacingSDK.dll SimHub.logging.dll SimHub.plugins.dll log4net.dll MahApps.*.dll
 
-    # - name: Restore Packages
-    #   run: nuget restore "Dahl Design Properties.sln"
+    - name: Restore Packages
+      run: nuget restore "Dahl Design Properties.sln"
 
-    # - name: Build solution
-    #   run: msbuild "Dahl Design Properties.sln" -t:rebuild -property:Configuration=Release
+    - name: Build solution
+      run: msbuild "Dahl Design Properties.sln" -t:rebuild -property:Configuration=Release
       
       
     
