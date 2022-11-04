@@ -5,15 +5,15 @@ name: Create DahlDesignProperties DLL
 
 on:
   workflow_dispatch:
-    inputs:
-      version:
-        type: string
-        description: What Properties version does this correspond to?
-        required: true
-      is-pre-release:
-        type: boolean
-        required: true
-        description: "is this a prerelease version?"
+    # inputs:
+    #   version:
+    #     type: string
+    #     description: What Properties version does this correspond to?
+    #     required: true
+    #   is-pre-release:
+    #     type: boolean
+    #     required: true
+    #     description: "is this a prerelease version?"
 
 jobs:
   build:
@@ -47,6 +47,9 @@ jobs:
 
     - name: Extract SimHub Zip 
       run: 7z x SimHub.8.01.2.zip
+
+    - name: Show Dir
+      run: dir
   
     - name: Extract SimHub EXE
       run: innounp.exe /b /v /x SimHub.8.01.2.exe
