@@ -38,9 +38,8 @@ jobs:
         7z x innounp050.rar
         7z x SimHub.8.01.2.zip
         dir
-        D:\a\DahlDesignProperties\DahlDesignProperties\innounp.exe 
-    
-    #/b /v /x SimHubSetup_8.1.2.exe
+        mkdir extract
+        D:\a\DahlDesignProperties\DahlDesignProperties\innounp.exe -v -x -b -e -dextract SimHubSetup_8.1.2.exe *.dll
 
     # - name: Restore Packages
     #   run: nuget restore "Dahl Design Properties.sln"
