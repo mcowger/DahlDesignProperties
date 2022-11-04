@@ -31,28 +31,16 @@ jobs:
     # - name: setup-msbuild
     #   uses: microsoft/setup-msbuild@v1.1
 
-    # - uses: suisei-cn/actions-download-file@v1.0.1
-    #   id: innounp050.rar  # Remember to give an ID if you need the output filename
-    #   name: Download InnoUp Extractor
-    #   with:
-    #     url: "https://sourceforge.net/projects/innounp/files/innounp/innounp%200.50/innounp050.rar/download"
-    - name: Get InnoUNP # Used to extract the SimHub Installer
-      run: aria2c -j1 -o innounp050.rar "https://sourceforge.net/projects/innounp/files/innounp/innounp%200.50/innounp050.rar/download"
-
-    - name: Get SimHub
-      run: aria2c -j1 -o SimHub.8.01.2.zip "https://github.com/SHWotever/SimHub/releases/download/8.1.2/SimHub.8.01.2.zip"
-
-    - name: Extract InnoUNP 
-      run: 7z x innounp050.rar
-
-    - name: Extract SimHub Zip 
-      run: 7z x SimHub.8.01.2.zip
-
-    - name: Show Dir
-      run: dir
-  
-    - name: Extract SimHub EXE
-      run: D:\a\DahlDesignProperties\DahlDesignProperties\innounp.exe /b /v /x SimHubSetup_8.1.2.exe
+    - name: Get Requirements # Used to extract the SimHub Installer
+      run: | 
+        aria2c -j1 -o innounp050.rar "https://sourceforge.net/projects/innounp/files/innounp/innounp%200.50/innounp050.rar/download"
+        aria2c -j1 -o SimHub.8.01.2.zip "https://github.com/SHWotever/SimHub/releases/download/8.1.2/SimHub.8.01.2.zip"
+        7z x innounp050.rar
+        7z x SimHub.8.01.2.zip
+        dir
+        D:\a\DahlDesignProperties\DahlDesignProperties\innounp.exe 
+    
+    #/b /v /x SimHubSetup_8.1.2.exe
 
     # - name: Restore Packages
     #   run: nuget restore "Dahl Design Properties.sln"
