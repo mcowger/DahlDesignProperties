@@ -36,11 +36,20 @@ jobs:
     #   name: Download InnoUp Extractor
     #   with:
     #     url: "https://sourceforge.net/projects/innounp/files/innounp/innounp%200.50/innounp050.rar/download"
-    - name: Get innoup
+    - name: Get InnoUp # Used to extract the SimHub Installer
       run: aria2c -j1 -o innounp050.rar "https://sourceforge.net/projects/innounp/files/innounp/innounp%200.50/innounp050.rar/download"
 
-    - name: Extract innoup files
+    - name: Get SimHub
+      run: aria2c -j1 -o SimHub.8.01.2.zip "https://github.com/SHWotever/SimHub/releases/download/8.1.2/SimHub.8.01.2.zip"
+
+    - name: Extract InnoUp 
       run: 7z x innounp050.rar
+
+    - name: Extract SimHub Zip 
+      run: 7z x SimHub.8.01.2.zip
+  
+    - name: Extract SimHub Zip 
+      run: 7z x SimHub.8.01.2.zip
 
     # - name: Restore Packages
     #   run: nuget restore "Dahl Design Properties.sln"
