@@ -49,7 +49,7 @@ jobs:
       run: 7z x SimHub.8.01.2.zip
   
     - name: Extract SimHub EXE
-      run: innounp /b /v /x SimHub.8.01.2.exe
+      run: innounp.exe /b /v /x SimHub.8.01.2.exe
 
     # - name: Restore Packages
     #   run: nuget restore "Dahl Design Properties.sln"
