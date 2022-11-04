@@ -1,0 +1,50 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: Create DahlDesignProperties DLL
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        description: What Properties version does this correspond to?
+        required: true
+      is-pre-release:
+        type: boolean
+        required: true
+        description: "is this a prerelease version?"
+
+jobs:
+  build:
+
+    runs-on: windows-2019
+
+    steps:
+    # - uses: actions/checkout@v2
+    # - name: Setup MSBuild
+    #   uses: microsoft/setup-msbuild@v1
+
+    # - name: Setup NuGet
+    #   uses: NuGet/setup-nuget@v1.0.5
+      
+    # - name: setup-msbuild
+    #   uses: microsoft/setup-msbuild@v1.1
+
+    - uses: suisei-cn/actions-download-file@v1.0.1
+      id: innoupfile  # Remember to give an ID if you need the output filename
+      name: Download InnoUp Extractor
+      with:
+        url: "https://sourceforge.net/projects/innounp/files/innounp/innounp%200.50/innounp050.rar/download"
+    
+    - name: Extract innoup files
+      run: 7z x innounp050.rar
+
+    # - name: Restore Packages
+    #   run: nuget restore "Dahl Design Properties.sln"
+
+    # - name: Build solution
+    #   run: msbuild "Dahl Design Properties.sln" -t:rebuild -property:Configuration=Release
+      
+      
+    
