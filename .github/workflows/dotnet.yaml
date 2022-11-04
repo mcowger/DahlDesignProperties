@@ -31,12 +31,14 @@ jobs:
     # - name: setup-msbuild
     #   uses: microsoft/setup-msbuild@v1.1
 
-    - uses: suisei-cn/actions-download-file@v1.0.1
-      id: innoupfile  # Remember to give an ID if you need the output filename
-      name: Download InnoUp Extractor
-      with:
-        url: "https://sourceforge.net/projects/innounp/files/innounp/innounp%200.50/innounp050.rar/download"
-    
+    # - uses: suisei-cn/actions-download-file@v1.0.1
+    #   id: innounp050.rar  # Remember to give an ID if you need the output filename
+    #   name: Download InnoUp Extractor
+    #   with:
+    #     url: "https://sourceforge.net/projects/innounp/files/innounp/innounp%200.50/innounp050.rar/download"
+    - name: Get innoup
+      run: aria2c -j1 -o innounp050.rar "https://sourceforge.net/projects/innounp/files/innounp/innounp%200.50/innounp050.rar/download"
+
     - name: Extract innoup files
       run: 7z x innounp050.rar
 
